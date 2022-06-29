@@ -20,10 +20,12 @@ export default {
       title: "All Books",
       states: ["Want to Read", "Read", "Reading"],
       books: [
-        { title: "Self-Reliance", author: "Ralph Waldo Emerson", finishedReading: true},
-        { title: "American Gods", author: "Neil Gaiman", finishedReading: false },
-        { title: "Amusing Ourselves to Death", author: "Neil Postman", finishedReading: true }
-      ]
+        { title: "Self-Reliance", author: "Ralph Waldo Emerson", finishedReading: true, ownership: "borrowed"},
+        { title: "American Gods", author: "Neil Gaiman", finishedReading: false, ownership: "bought"},
+        { title: "Amusing Ourselves to Death", author: "Neil Postman", finishedReading: true, ownership: "borrowed"}
+      ],
+      filters: ["bought", "borrowed"],
+      holding: "bought"
     };
   },
   components: {
@@ -32,7 +34,7 @@ export default {
   },
   methods: {
     appendBook(bookData) {
-      this.books.push({ title: bookData.bookTitle, author: bookData.bookAuthor, finishedReading: bookData.finishedReading });
+      this.books.push({ title: bookData.bookTitle, author: bookData.bookAuthor, finishedReading: bookData.finishedReading, ownership: bookData.ownership });
     }
   }
 };
